@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8">
+  <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/styles1.css' />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"></head>
+  <body><!-- <body class="<%= page %>">  use this to make inspect the speaker page bocay has the class of home or spearker like the one in inspect the home page it wont matter here since it was introduced to fix the home pg layout but if you want diff style based on pg to pg then it matters -->
+  	<% include partials/template/header.ejs %>
+    <% include partials/content/speakerslist.ejs %> 
+  	
+   <section class="layout"><!-- html -->
+   <!--  <div class="primary">
+    <div class="speakerslist">
+      <section class="layout">
+         <h1><i class="icon-calendar"></i>speaking at the Next Meeting</h1>
+         <div class="Speakers">
+           article.artist*>h3>{Title}^p>a[href="#"]>img.speaker[src="images/speakers/$#_tn.jpg" alt="Photo of $#"]^^p>Lorem
+         <article class="artist">
+           <h3>Art in Full Bloom<span class="small">with
+         <a href="/speakers/Lorenzo_Garcia">Lorenzo Garcia</a></span></h3>
+           <p><a href="#"><img src="/images/speakers/Lorenzo_Garcia_tn.jpg" alt="Photo of Lorenzo_Garcia" class="speaker"></a></p>
+           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia quae, amet quo distinctio nam odio aliquam, eius deleniti atque accusantium aspernatur maxime, obcaecati omnis hic tempora animi, non corrupti repellendus!</p>
+         </article>
+         <article class="artist">
+           <h3>Title</h3>
+           <p><a href="#"><img src="images/speakers/Hillary_Goldwynn_tn.jpg" alt="Photo of Hillary_Goldwynn" class="speaker"></a></p>
+           <p>In iusto ipsa, ipsam! Omnis quia nulla voluptatem excepturi deserunt unde consequuntur voluptate, ratione voluptates consectetur! Officiis dignissimos id, voluptas quos accusantium voluptatum, optio quam eos itaque excepturi nostrum voluptate.</p>
+         </article>
+         <article class="artist">
+           <h3>title</h3>
+           <p><a href="#"><img src="images/speakers/Riley_Rewington_tn.jpg" alt="Photo of Riley_Rewington" class="speaker"></a></p>
+           <p>Veniam soluta totam laborum, architecto delectus vero quaerat quod. Numquam sapiente delectus, voluptatum nulla obcaecati cupiditate magnam excepturi ipsam accusamus rem nesciunt dolore ipsa eius possimus vero saepe exercitationem atque!</p>
+         </article>artist
+         </div>speakers
+       </section>layout
+     </div>speakerslist
+   </div>primary -->
+
+         <!-- <aside class="xxx"> -->
+          <!--  <article id="nextmeeting">
+            <h1><i class="icon-calendar"></i>Next Metting</h1>
+            <p><img src="images/misc/hotel_gwendoline.jpg" alt="location"></p>
+      </article> -->
+      
+<!-- <img src="/images/artwork/Lorenzo_Garcia_01_tn.jpg"> -->
+      <!-- <p> --><% include partials/content/artworklist.ejs %><!-- </p> -->
+	 <!-- </aside>secondary -->
+  	</section><!-- layout -->
+    <% include partials/template/footer.ejs %>
+   <% include partials/template/jsdefault.ejs %>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+<article class="nextmeeting">
+ <h1>Next Meeting</h1>
+<p><!src source>
+<img src=" <%= appdata.meeting.where.img %>" alt="meeting location"> Out next meeting will be on <%= appdata.meeting.date %>,  <%= appdata.meeting.time %> at  <%= appdata.meeting.where.name %>  <%= appdata.meeting.where.address %>
+<!error wont be at metting or no meeting bef where>
+</p>
+<p><% include socialmedia.ejs %></p>
+<! dont need ../content like in the footer sin its in the same folder>
+ </article>

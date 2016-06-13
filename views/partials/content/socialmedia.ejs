@@ -1,0 +1,8 @@
+<article class="socialmediaicons">
+ <span class="title">Join the movement:</span>
+ <ul class="group">
+ <% appdata.social.forEach(function(item){%>
+ <!-- item is a temprary var and this is EJS command the <pers. is the same as PHP and the following is js-->
+<li><a href="<%= item.url %>"><img class="icon" src="<%= item.img %>" alt="icon for <%= item.shortname %>"></a></li>
+ <% }); %>
+</article>

@@ -1,0 +1,20 @@
+<article class="speakerslist">
+ <!-- <section class="layout"> -->
+ <!--  <h1><i class="icon-calendar"></i>speaking at the Next Meeting</h1> -->
+  <!-- <div class="speakers"> -->
+   <% artists.forEach(function(item){ %> 
+   <!--  <article class="artist"> -->
+    <!-- <article class="artists"> -->
+   	
+   			<!-- <p> --><% if (page!='home'){ %><!-- //if not home page   -->
+   			 <% if(page=='artistlist'){ %>
+   			   <%- item.summary %>
+   		     <% }else{ %><!-- if page=artistlist -->
+   		   	  <%- item.description %><!-- //- inst = wont convert any mtl in the data.jason so <p> in the description from jason wont show up again -->
+   	         <% } %><!-- else -->
+   		    <% } %><!-- if page!=home --><!-- </p> -->
+   <!-- 	</artists> -->
+   	<% }); %> <!-- forEach -->
+<!--   </div> -->
+<!--  </section> -->
+</article>
