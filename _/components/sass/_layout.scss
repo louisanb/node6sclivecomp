@@ -1,0 +1,245 @@
+ 
+//susy setup========================
+//creating default grid value
+$total-colums: 12;
+$colum-width: 4em;
+$gutter-width: 1em;
+$grid-padding: $gutter-width; 
+//padding of the grid, this is really the room at each of the edges layout. Now I could set that up to some other number, 
+//but I'm just going to set it up to the gutter width, so I'll use the gutter width variable here.
+@include border-box-sizing;//old IE padding and box size recognation or auto adj to get rid of padding effect on size of box
+//break pts=============================
+$small: 30em;
+$medium: 47em;
+$large: 75em;
+
+/* //layout
+.layout{
+	padding: 3%;//leave room from the word to the edge of the page
+}//layout//http://www.w3schools.com/css/tryit.asp?filename=trycss_padding_sides 
+ */
+
+//content
+.layout{
+	@include container;
+	padding: 0 3%;//top bottom 0 left right 3%
+
+	.primary{
+		margin-top: .2em;
+		@include susy-breakpoint($medium){
+			//@include span-columns(8,12);//the sec on left side of screen widder
+			@include span(8 of 12);
+		#nextmeeting{
+			@include border-radius(20px);
+			color: $paleyellow;//try taking it off cuz ithought it has been set elsew
+			margin-bottom: 10px;
+			margin-top: 10px;
+			padding: 0 20px 20px 20px; //p0-20-20-20
+			background: $cyan;
+
+			h1{
+				color: $slb;//darken($cyan, 15);
+				border: none;
+				margin-bottom: 20px;
+				text-shadow: none;
+			}//nm h1
+		  }//next meeting
+		}//medium layout
+	}//primary
+
+	.secondary{
+		@include susy-breakpoint($medium){
+			@include span(last 4 of 12);//.old { @include span-columns(3 omega, 12
+			font-size: 1.1rem;
+			h1{
+				font-size: 1.8rem;
+			}//h1
+		}//bp
+	}//sec
+}//content layout
+
+header{
+	img{
+		width:95%;
+		margin: 2.5%;
+		max-width: 500px;
+		margin-bottom: 0;//lets modify it so it s completetly blanck otehrwise when w is big y would see that its(size) a little too much
+	}//img
+
+	.hero{
+		width: 100%;
+		@include susy-breakpoint($medium){
+			@include single-transition(all, 1s, ease-out);
+			//specify type of item u want to tran. we want not just the size, but also the opacity, and anything else that's different 
+			//between this layout and our wider layout. then how long y wt trans to last and wt it slow at the end or beginning wh tran
+			position: relative;//so logo alway by the bottom of pic
+			display: block;
+			width: 100%;
+			height: 450px;
+			//logo is blending little too much into the background.use another mixin to help it have a little bit more contrast.actually, 
+			//I already got this include background mixin.what this mixin(webkit-bg-size etc3) does is take care of creating the different 
+			//prefixes for different browsers  I'm going to do here is actually create a gradient. 
+			@include background(linear-gradient(bottom left, rgba($darkerblue, .6), rgba($darkerblue, 0)),image-url('misc/blackGrass3.jpg'));
+			background-repeat: no-repeat;//I'm telling a color to be based on this darker blue, but only be 60% of that darker blue. So it, 
+			//it'll be darker blue at 60% strength, which will make it partially transparent.then I'll want to do another color break but 0
+			background-position: center center;//c img in c of layout
+			-webkit-background-size: cover;//the image is so big to fit within the container here 
+			-moz-background-size: cover;//y need to do bg size attribute 
+			-o-background-size: cover;//there r for diff webs
+			background-size: cover;//http://help.dottoro.com/lcjojunx.php
+			margin: 0 auto;//center container
+
+			.branding{//make logo stick to the bottom
+				position: absolute;
+				bottom: 0;
+				}//brand
+			}//bpt 
+	}//hero
+}//header
+
+.navigation{
+	background: lighten($mediumgray, 5);
+	ul.nav{
+		@include susy-breakpoint($small){
+			@include horizontal-list;
+		}
+		li{
+			i{
+			color: $slb;//lighten($yellow, 20);
+			padding-right: .5em;	
+			}//i=icons
+			a{
+				@include single-transition(all, 1s, ease-out);
+				display: block;//when ever y set it to block it allow y to adjest pading margin and width 
+				text-decoration: none;//get rid of underline
+				padding: 5px 10px;//top bottom and left right
+				color: $dybbmgb;//$paleryellow;//change default link blue to 
+			
+			&:hover{
+			//whenever we hover over links,background is orange. anchor tags is a color that's a light version of the yellow by 30%.
+				background: $lbc;//$orange;
+					a{
+					  color: lighten($yellow, 30);
+						}//a
+				}//hover
+			}//a
+		}//li
+	}//ul.nav
+}//nav
+
+.speakerslist{
+	img{
+			@include border-radius(5px);
+			width: 120px;
+			float: left;
+			margin: {//sass is smart enough to conver it ot the appropriate css
+				right: 10px;
+				bottom: 10px;
+				top: 10px;
+			}//margin
+		}//img
+ 
+	i{//i think this means icon
+		padding-right: 15px;//fix calander icon too close to title speaking at the next 
+	}
+
+	  @include susy-breakpoint($medium){
+		text-align: center;
+		@include background(linear-gradient(top, lighten($lbc, 3), $lbc));
+		//@include background(linear-gradient(top, lighten($darkblue, 3), $darkerblue));
+		overflow: hidden;//hide overflow texts
+		$lbcpadding-bottom: 10px;
+		
+		#{headings()}{//a f modify all heading at once
+			text-shadow: none;//get rid of the old ones or previous editions else where stuff
+			border-bottom: none !important;//when y dont see any effect use this to override anyother place that defined this
+		}//headings
+
+		h1{
+			color: $dlb;/* $dybbmgb; *//*$blue; *//* dblp; *///$green;
+			font-size: 2.5rem;
+			line-height: 1em;
+			@include susy-breakpoint(large){
+			  font-size:  4rem;
+			  line-height: 1em;
+				}//large bpt
+			}//h1
+
+			h3{
+				color: $lg;
+				//color: //$gb;//$lg;//lighten($yellow, 10);
+				line-height: .9rem;
+			}//h3
+
+			.small{
+				padding-top: .4em !important;
+				line-height: 1em;
+				color: lighten($darkblue, 30);
+				a{
+					color: lighten($darkblue, 30);
+					text-decoration: none;
+					&:hover{
+						text-decoration: underline;
+					}//hover
+				}//a
+			}//small
+
+	img.speaker{//prepare it for 3 col layout
+	float: none;
+	width: 40%;
+	max-width: 100;//170px;
+	margin: 0 auto;
+	margin-top: 10px;
+	@include border-radius(50%);
+	//display: block;//didnt fix img not over each other when big
+	}//img.speaker//img under speaker
+
+	.small{
+		display: block;//make small sec start ne ine underneath the main title when big
+	}//because these are going to be small columns, so I want those to be on a seperate line
+
+	p:nth-of-type(2){// a selector called nth of type, and that selector allows you to get a certain element in the dob
+	//it's going to give us a certain element, and control only that element within the section that I'm in.
+// right now I'm in the medium section.I want to target the second paragraph that appears in my layout. another paragraphs 
+//r in this sec. this speaker right here is in a paragraph(href=xxx<img class= src=).I'm targeting the second paragraph. 
+	font-weight: 200 !important;
+	text-align: left;
+	font-size: .8em;
+	line-height: 0;//make words invisible
+	//@include single-transition(all, .3s, ease-out);
+	//@include single-transition(all, 1s, ease-out);
+	//@include transition(all, 2s, ease-out);
+	opacity: 0;
+	}//p:nth 
+
+	&:hover{//p visible when hover
+		p:nth-of-type(2){
+			line-height: 1.5em;
+			@include single-transition(all, .3s, ease-in);
+			opacity: 1;
+		}//p
+	}//hover
+	 
+	//.artist{
+		artists{
+	   @include span(4 of 12);
+	   //columnize our text. we told it how many columns we wanted the element to span.
+	   //I want each column to span four units, because there's going to be three columns and three times four is 12. 
+		}//artist 
+	    
+	.artist:nth-of-type(3){//only on the 3rd col do following: make the 4th last col
+		@include span( 4 of 12 last);
+		//@include clearfix;//dnt fix 
+		//That normally what I do whenever I want to span some columns with Susie is I set the last column to be an omega column so it floats over to the left hand side,
+		}//artist nth 	 
+ 
+	}//medium bpt
+}//speakerslist
+
+footer{
+	color: $paleyellow;//color of the font
+	background: lighten($mediumgray, 3);
+	margin-top: 20px;
+	padding-top: 20px;
+	padding-bottom: 100px; 
+} 

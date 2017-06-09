@@ -61,4 +61,7 @@ router.get('/speakers/:speakerid', function(req, res, next) {
     });//render
 });//router.get
 
+router.get('/h', function(req, res, next) {
+  res.render('s');})
+
 module.exports = router;

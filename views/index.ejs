@@ -2,7 +2,23 @@
 <html>
   <head><% include partials/template/head.ejs %></head>
   <body> <class="<%= page %>">
-  <% include partials/template/header.ejs %>
+
+<% include partials/template/header.ejs %>
+<!%setTimeout(function(){include partials/template/header.ejs }, 5000);%>
+<!-- <button onclick="myFunction()"Try it</button-->
+<script>
+// function myFunction() {
+  setTimeout(function(){document.getElementById('aap').className = 'waa'; }, 3000);
+    // setTimeout(function(){ alert("Hello"); }, 3000);
+// }
+</script>
+    <style>
+    <%setTimeout(function(){%>
+     <% include partials/template/header.ejs %>
+     <%}, 500);%>
+</style>
+
+  <!-- <img id="sos" src="images/speakers/Lorenzo_Garcia_tn.jpg"> -->
 
      <div class="speakerslist">
     <section class="layout">

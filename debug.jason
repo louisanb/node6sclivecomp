@@ -1,0 +1,14 @@
+config.rb
+/*config.assets.paths.concat(
+   Compass::Frameworks::ALL.map { |f| f.stylesheets_directory }
+)*/
+
+/* config.sasscompass.paths.concat(
+   Compass::Frameworks::ALL.map { |f| f._/components/sass }
+) */
+/* config.sasscompass.paths.concat(
+   Compass::Frameworks::ALL.map { |f| f.stylesheets_directory }
+) */
+/*config.sasscompass.paths.concat(
+   Compass::Frameworks::ALL.map { |f| f./EE/ME/sublime/sasscompass_/components/sass }
+) */
